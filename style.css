@@ -1,0 +1,273 @@
+/* Use of ::before and ::after pseudo elements */
+nav ul li:nth-child(1) a::before {
+  content: "🏠 ";
+  color: red;
+}
+
+nav ul li:nth-child(4) a::after {
+  content: "📞 ";
+  color: purple;
+}
+/* Use of postion relative and absolute */
+
+.hero-content {
+  position: relative;
+  width: 500px; /* bigger width */
+  height: 300px; /* bigger height */
+  background-color: rgb(22, 225, 239); /* aqua */
+  border-radius: 10px;
+  margin: 100px auto; /* center on screen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Child box - absolute */
+.hero-box {
+  position: absolute; /* positioned inside .hero-content */
+  top: 30px; /* distance from top */
+  left: 50px; /* distance from left */
+  border: 2px solid white;
+  background: rgba(255, 0, 0, 0.9); /* red visible box */
+  border-radius: 10px;
+}
+
+/*Use of Flexbox*/
+nav ul {
+  display: flex; /* enable flex */
+  justify-content: center; /* center links horizontally */
+  align-items: center; /* align links vertically */
+  gap: 50px; /* spacing between links */
+  list-style: none; /* remove bullets */
+  padding: 15px;
+}
+
+/* bootstrap spacing utilities*/
+
+.hero {
+  background-color: #000;
+}
+.video-block {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-block video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #0fb82b, #02a217, #01b064),
+    url("https://www.transparenttextures.com/patterns/wood-pattern.png"); /* Optional texture */
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.overlay-text {
+  color: white;
+  position: relative;
+  padding: 60px;
+  text-align: center;
+}
+
+.green-fade-section {
+  height: 100vh;
+  background: linear-gradient(to bottom, rgb(209, 174, 20), rgb(170, 170, 0));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.green-fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.green-fade-section.fading-out {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+
+/* Image Gallery Section */
+.image-gallery {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s ease;
+  padding: 100px 20px;
+  background-color: #111;
+  color: #e0ffe0;
+  text-align: center;
+}
+
+.image-gallery.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-gallery h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(4, 19, 13, 0.726);
+}
+
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #000;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0);
+  z-index: 10;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 15px;
+}
+
+nav li a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: bold;
+}
+
+/* Hero Section with Video */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Fade to next section */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 150px;
+  width: 100%;
+}
+
+.green-fade-section {
+  background-color: #1b1f1d; /* Base color */
+  background-image: url("texture\ 2.jpg");
+  background-size: cover; /* or "repeat", "contain", etc. */
+  background-blend-mode: overlay;
+}
+
+.site-footer {
+  background-color: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+}
+
+.site-footer p {
+  margin: 6px 0;
+}
+
+.sauna-benefits {
+  background-color: #1b1f1d00;
+  color: #e2e2e2;
+  padding: 60px 30px;
+  text-align: center;
+  font-family: "Georgia", serif;
+  line-height: 1.7;
+}
+
+.sauna-benefits h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #a5e298;
+}
+#cursorSteam {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+.ripple {
+  position: fixed;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 1.2s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  mix-blend-mode: overlay;
+  transition: opacity 0.5s ease-out;
+  will-change: transform, opacity;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
